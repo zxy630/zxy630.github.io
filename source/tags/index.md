@@ -1,2 +1,2 @@
 type: "tags"
-comments: false
+comments: true

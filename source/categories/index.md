@@ -1,2 +1,2 @@
 type: "categories"
-comments: false
+comments: true
