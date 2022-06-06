@@ -349,8 +349,8 @@ android_chrome_color: "#222"
 
 # Custom Logo (Do not support scheme Mist)
 custom_logo: #/uploads/custom-logo.jpg
-  enabled:true
-  image：https://s2.loli.net/2022/06/06/cnwpXNMmZLzeIE8.webp
+  enabled: true
+  image: https://s2.loli.net/2022/06/06/cnwpXNMmZLzeIE8.webp
 
 codeblock:
   # Code Highlight theme
