@@ -15,6 +15,7 @@ reminder: false
 # Allow to cache content generation. Introduced in NexT v6.0.0.
 cache:
   enable: true
+  image：https://sm.ms/image/cnwpXNMmZLzeIE8
 
 # Remove unnecessary files after hexo generate.
 minify: false
