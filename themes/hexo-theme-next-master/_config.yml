@@ -47,10 +47,6 @@ favicon:
   #android_manifest: /images/manifest.json
   #ms_browserconfig: /images/browserconfig.xml
 
-# Set default keywords (Use a comma to separate)
-# 站点关键字，利于 SEO 大概，记得用英文逗号分隔
-keywords: 学习笔记, 情书，生活随笔
-
 # Show multilingual switcher in footer.
 language_switcher: false
 
@@ -71,7 +67,7 @@ footer:
   copyright:
 
   # Powered by Hexo & NexT
-  powered: false
+  powered: true
 
   # Beian ICP and gongan information for Chinese users. See: https://beian.miit.gov.cn, http://www.beian.gov.cn
   beian:
@@ -121,9 +117,9 @@ darkmode: false
 # External url should start with http:// or https://
 menu:
   home: / || fa fa-home
-  about: /about/ || fa fa-user
-  tags: /tags/ || fa fa-tags
-  categories: /categories/ || fa fa-th
+  #about: /about/ || fa fa-user
+  #tags: /tags/ || fa fa-tags
+  #categories: /categories/ || fa fa-th
   archives: /archives/ || fa fa-archive
   #schedule: /schedule/ || fa fa-calendar
   #sitemap: /sitemap.xml || fa fa-sitemap
@@ -181,8 +177,8 @@ site_state: true
 # Key is the link label showing to end users.
 # Value before `||` delimiter is the target permalink, value after `||` delimiter is the name of Font Awesome icon.
 social:
-  GitHub: https://github.com/zxy630 || fab fa-github
-  E-Mail: mailto:1481015567@qq.com || fa fa-envelope
+  #GitHub: https://github.com/yourname || fab fa-github
+  #E-Mail: mailto:yourname@gmail.com || fa fa-envelope
   #Weibo: https://weibo.com/yourname || fab fa-weibo
   #Google: https://plus.google.com/yourname || fab fa-google
   #Twitter: https://twitter.com/yourname || fab fa-twitter
@@ -194,11 +190,10 @@ social:
 
 social_icons:
   enable: true
-  icons_only: true
-  transition: true
+  icons_only: false
+  transition: false
 
 # Blog rolls
-# 侧栏友链设置
 links_settings:
   icon: fa fa-link
   title: Links
@@ -206,7 +201,7 @@ links_settings:
   layout: block
 
 links:
-  欢迎: http://zxy630.github.io/welcome/
+  #Title: http://yoursite.com
 
 # Table of Contents in the Sidebar
 # Front-matter variable (unsupport wrap expand_all).
@@ -257,7 +252,7 @@ post_meta:
 symbols_count_time:
   separated_meta: true
   item_text_post: true
-  item_text_total: true
+  item_text_total: false
 
 # Use icon instead of the symbol # to indicate the tag at the bottom of the post
 tag_icon: false
@@ -266,8 +261,8 @@ tag_icon: false
 # Front-matter variable (unsupport animation).
 reward_settings:
   # If true, reward will be displayed in every article by default.
-  enable: true
-  animation: true
+  enable: false
+  animation: false
   #comment: Donate comment here.
 
 reward:
@@ -308,12 +303,6 @@ post_edit:
 # Available values: left | right | false
 post_navigation: left
 
-
-# 转载声明
-post_copyright:
-  enable: true
-  license: CC BY-NC-SA 3.0
-  license_url: https://creativecommons.org/licenses/by-nc-sa/3.0/
 
 # ---------------------------------------------------------------
 # Custom Page Settings
@@ -360,19 +349,19 @@ android_chrome_color: "#222"
 
 # Custom Logo (Do not support scheme Mist)
 custom_logo: #/uploads/custom-logo.jpg
-  enabled: false
+  enabled: true
   image: https://i.postimg.cc/YqCc9cMh/image.webp
 
 codeblock:
   # Code Highlight theme
   # Available values: normal | night | night eighties | night blue | night bright | solarized | solarized dark | galactic
   # See: https://github.com/chriskempson/tomorrow-theme
-  highlight_theme: night
+  highlight_theme: normal
   # Add copy button on codeblock
   copy_button:
     enable: true
     # Show text copy result.
-    show_result: true
+    show_result: false
     # Available values: default | flat | mac
     style:
 

@@ -1,6 +1,5 @@
 ---
 title: 欢迎
-top: true
 tags:
     - 随笔
 categories:
