@@ -55,9 +55,8 @@
 {% include '_third-party/exturl.swig' %}
 </body>
 </html>
-+ <!-- 页面点击小红心 -->
-+ <script type="text/javascript" src="/js/src/love.js"></script>
-
+<!-- 页面点击小红心 -->
+<script type="text/javascript" src="/js/src/love.js"></script>
 
   {{- next_inject('bodyEnd') }}
   {%- if theme.pjax %}
