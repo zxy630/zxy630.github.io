@@ -1168,7 +1168,7 @@ pre .javascript .function {
 }
 .links-of-author a::before,
 .links-of-author span.exturl::before {
-  background: #40cd71;
+  background: #c98cc7;
   border-radius: 50%;
   content: ' ';
   display: inline-block;
@@ -2182,10 +2182,16 @@ embed {
   border: 0;
 }
 .custom-logo-image {
-  background: #fff;
   margin: 0 auto;
-  max-width: 150px;
   padding: 5px;
+  max-width: 150px;
+  background: #fff;
+/* start*/
+  border-radius: 50%;
+  transition: 2.5s all;
+}
+.custom-logo-image:hover {
+  transform: rotate(360deg);
 }
 .brand {
   background: var(--btn-default-bg);
