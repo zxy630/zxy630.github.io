@@ -34,14 +34,7 @@
               {{ _p('counter.tag_cloud', site.tags.length) }}
             </div>
             <div class="tag-cloud-tags">
-              {{ tagcloud({
-                min_font   : theme.tagcloud.min,
-                max_font   : theme.tagcloud.max,
-                amount     : theme.tagcloud.amount,
-                color      : true,
-                start_color: theme.tagcloud.start,
-                end_color  : theme.tagcloud.end})
-              }}
+              {{ tagcloud({min_font: 13, max_font: 31, amount: 1000, color: true, start_color: '#9733EE', end_color: '#FF512F'}) }}
             </div>
           </div>
         {% elif page.type === 'categories' %}
