@@ -15,7 +15,6 @@ reminder: false
 # Allow to cache content generation. Introduced in NexT v6.0.0.
 cache:
   enable: true
-  image：https://sm.ms/image/cnwpXNMmZLzeIE8
 
 # Remove unnecessary files after hexo generate.
 minify: false
@@ -350,6 +349,8 @@ android_chrome_color: "#222"
 
 # Custom Logo (Do not support scheme Mist)
 custom_logo: #/uploads/custom-logo.jpg
+  enabled:true
+  image：https://sm.ms/image/cnwpXNMmZLzeIE8
 
 codeblock:
   # Code Highlight theme
