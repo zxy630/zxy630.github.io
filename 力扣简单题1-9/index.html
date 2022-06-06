@@ -1,0 +1,508 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 6.2.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+<link rel="stylesheet" href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&display=swap&subset=latin,latin-ext">
+<link rel="stylesheet" href="/lib/font-awesome/css/all.min.css">
+
+<script id="hexo-configurations">
+    var NexT = window.NexT || {};
+    var CONFIG = {"hostname":"zxy630.github.io","root":"/","scheme":"Muse","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false},"copycode":{"enable":true,"show_result":false,"style":null},"back2top":{"enable":true,"sidebar":false,"scrollpercent":false},"bookmark":{"enable":true,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},"path":"search.xml"};
+  </script>
+
+  <meta name="description" content="leetcode simple 1-91. 两数之和题目：  给定一个整数数组 nums 和一个整数目标值 target，请你在该数组中找出和为目标值 target 的那两个整数，并返回它们的数组下标。  思路：  哈希表法：建立一个字典，将数值作为key，下标作为value，遍历整数数组，当前值+查找值&#x3D;目标值，若查找值在字典里直接返回对应下标和当前下标，否则加入字典。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="leetcode simple 1-9">
+<meta property="og:url" content="https://zxy630.github.io/%E5%8A%9B%E6%89%A3%E7%AE%80%E5%8D%95%E9%A2%981-9/index.html">
+<meta property="og:site_name" content="小粥同学的博客">
+<meta property="og:description" content="leetcode simple 1-91. 两数之和题目：  给定一个整数数组 nums 和一个整数目标值 target，请你在该数组中找出和为目标值 target 的那两个整数，并返回它们的数组下标。  思路：  哈希表法：建立一个字典，将数值作为key，下标作为value，遍历整数数组，当前值+查找值&#x3D;目标值，若查找值在字典里直接返回对应下标和当前下标，否则加入字典。">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2022-05-12T21:55:00.000Z">
+<meta property="article:author" content="小粥同学">
+<meta property="article:tag" content="力扣题解">
+<meta name="twitter:card" content="summary">
+
+<link rel="canonical" href="https://zxy630.github.io/%E5%8A%9B%E6%89%A3%E7%AE%80%E5%8D%95%E9%A2%981-9/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome : false,
+    isPost : true,
+    lang   : 'en'
+  };
+</script>
+
+  <title>leetcode simple 1-9 | 小粥同学的博客</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="Toggle navigation bar">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+
+  <div class="site-meta custom-logo">
+      <div class="site-meta-headline">
+        <a>
+          <img class="custom-logo-image" src="[object Object]" alt="小粥同学的博客">
+        </a>
+      </div>
+
+    <a href="/" class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <h1 class="site-title">小粥同学的博客</h1>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger">
+    </div>
+  </div>
+</div>
+
+
+
+
+<nav class="site-nav">
+  <ul id="menu" class="main-menu menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-home fa-fw"></i>Home</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>Archives</a>
+
+  </li>
+  </ul>
+</nav>
+
+
+
+
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+  <div class="reading-progress-bar"></div>
+  <a role="button" class="book-mark-link book-mark-link-fixed"></a>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content post posts-expand">
+            
+
+    
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
+    <link itemprop="mainEntityOfPage" href="https://zxy630.github.io/%E5%8A%9B%E6%89%A3%E7%AE%80%E5%8D%95%E9%A2%981-9/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="小粥同学">
+      <meta itemprop="description" content="勇敢自信乐观努力的宇宙无敌大可爱">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="小粥同学的博客">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          leetcode simple 1-9
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="far fa-calendar"></i>
+              </span>
+              <span class="post-meta-item-text">Posted on</span>
+
+              <time title="Created: 2022-05-12 21:55:00" itemprop="dateCreated datePublished" datetime="2022-05-12T21:55:00+00:00">2022-05-12</time>
+            </span>
+              <span class="post-meta-item">
+                <span class="post-meta-item-icon">
+                  <i class="far fa-calendar-check"></i>
+                </span>
+                <span class="post-meta-item-text">Edited on</span>
+                <time title="Modified: 2022-06-06 14:09:41" itemprop="dateModified" datetime="2022-06-06T14:09:41+00:00">2022-06-06</time>
+              </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <h1 id="leetcode-simple-1-9"><a href="#leetcode-simple-1-9" class="headerlink" title="leetcode simple 1-9"></a>leetcode simple 1-9</h1><h2 id="1-两数之和"><a href="#1-两数之和" class="headerlink" title="1. 两数之和"></a>1. 两数之和</h2><p>题目：</p>
+<blockquote>
+<p>给定一个整数数组 nums 和一个整数目标值 target，请你在该数组中找出和为目标值 target 的那两个整数，并返回它们的数组下标。</p>
+</blockquote>
+<p>思路：<br></p>
+<blockquote>
+<p>哈希表法：建立一个字典，将数值作为key，下标作为value，遍历整数数组，当前值+查找值&#x3D;目标值，若查找值在字典里直接返回对应下标和当前下标，否则加入字典。</p>
+</blockquote>
+<span id="more"></span>
+
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">class Solution:</span><br><span class="line">    def twoSum(self, nums: List[int], target: int) -&gt; List[int]:</span><br><span class="line">        hashmap = &#123;&#125;  # 字典，key是数值，value是下标</span><br><span class="line">        for index, num in enumerate(nums):  # 枚举(index, num)</span><br><span class="line">            another_num = target - num  # 求和所需的目标值</span><br><span class="line">            if another_num in hashmap:  # 如果在字典里直接返回对应的下标</span><br><span class="line">                return [hashmap[another_num], index]</span><br><span class="line">            hashmap[num] = index  # 如果不在字典里则加入字典</span><br><span class="line">        return None</span><br></pre></td></tr></table></figure>
+
+<h2 id="9-回文数"><a href="#9-回文数" class="headerlink" title="9. 回文数"></a>9. 回文数</h2><p>题目：</p>
+<blockquote>
+<p>给你一个整数 x ，如果 x 是一个回文整数，返回 true ；否则，返回 false 。回文数是指正序（从左向右）和倒序（从右向左）读都是一样的整数。如121。</p>
+</blockquote>
+<p>思路：</p>
+<blockquote>
+<p>将整数变成字符串类型，与翻转后的结果比较</p>
+</blockquote>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">class Solution:</span><br><span class="line">    def isPalindrome(self, x: int) -&gt; bool:</span><br><span class="line">        if str(x) != str(x)[::-1]:  # 判断字符串与翻转后的是否一致</span><br><span class="line">                return False</span><br><span class="line">        return True</span><br></pre></td></tr></table></figure>
+<blockquote>
+<p>如果不换类型怎么判断呢？将整数翻转容易产生溢出怎么办？</p>
+</blockquote>
+<blockquote>
+<p>将整数后一半翻转与前一半比较。</p>
+</blockquote>
+<p>方法2：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">class Solution:</span><br><span class="line">    def isPalindrome(self, x: int) -&gt; bool:</span><br><span class="line">        if x &lt; 0 or (x != 0 and x % 10 == 0):  # 如果是负数而且最后一位是0但x不是0的话可直接判断不是回文</span><br><span class="line">            return False</span><br><span class="line">        number = 0  # 记录翻转后一半的数</span><br><span class="line">        while x &gt; number:</span><br><span class="line">            number = x % 10 + number * 10  # 加上最低位</span><br><span class="line">            x = int(x / 10)  # 去除最低位</span><br><span class="line">        if x == number or int(number / 10) == x:  # 如果相等，或者奇数位去掉中间位相等则是回文</span><br><span class="line">            return True</span><br><span class="line">        return False</span><br></pre></td></tr></table></figure>
+
+<h2 id="13-罗马数字转整数"><a href="#13-罗马数字转整数" class="headerlink" title="13. 罗马数字转整数"></a>13. 罗马数字转整数</h2><p>题目：</p>
+<blockquote>
+<p>给定一个罗马数字，将其转换成整数。</p>
+</blockquote>
+<p>思路：</p>
+<blockquote>
+<p>遍历罗马数字求和，考虑例如IV表示4，意味着当数值小的罗马数字出现在前时转化成负数。</p>
+</blockquote>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">class Solution:</span><br><span class="line">    def romanToInt(self, s: str) -&gt; int:</span><br><span class="line">        romanNum = &#123; # 各罗马数字对应数值</span><br><span class="line">            &#x27;I&#x27;:1,</span><br><span class="line">            &#x27;V&#x27;:5,</span><br><span class="line">            &#x27;X&#x27;:10,</span><br><span class="line">            &#x27;L&#x27;:50,</span><br><span class="line">            &#x27;C&#x27;:100,</span><br><span class="line">            &#x27;D&#x27;:500,</span><br><span class="line">            &#x27;M&#x27;:1000</span><br><span class="line">        &#125;</span><br><span class="line">        sumNum = 0  # 求和</span><br><span class="line">        for i in range(len(s) - 1):  # 最后一个字母单独考虑</span><br><span class="line">            if romanNum[s[i]] &lt; romanNum[s[i+1]] :  # 如果比后面一个字符小，则减去</span><br><span class="line">                sumNum -= romanNum[s[i]]</span><br><span class="line">            else:</span><br><span class="line">                sumNum += romanNum[s[i]]  # 如果比后面一个字符大，则加上</span><br><span class="line">        sumNum += romanNum[s[-1]]    # 加上最后一个字母</span><br><span class="line">        return sumNum</span><br></pre></td></tr></table></figure>
+
+<h2 id="14-最长公共前缀"><a href="#14-最长公共前缀" class="headerlink" title="14. 最长公共前缀"></a>14. 最长公共前缀</h2><p>题目：</p>
+<blockquote>
+<p>编写一个函数来查找字符串数组中的最长公共前缀。</p>
+<p>如果不存在公共前缀，返回空字符串 “”。</p>
+</blockquote>
+<p>思路：</p>
+<blockquote>
+<p>先看第一个单词，设为当前前缀，与第二个单词比较取公共部分更新当前前缀，依次类推。</p>
+</blockquote>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">class Solution:</span><br><span class="line">    def longestCommonPrefix(self, strs: List[str]) -&gt; str:</span><br><span class="line">        if strs == None: # 数组为空，直接返回空</span><br><span class="line">            return &quot;&quot;</span><br><span class="line">        prefix = strs[0] # 令前缀为第一个单词</span><br><span class="line">        for i in strs:</span><br><span class="line">            prefix = self.lcp(prefix,i) # 前缀与后面每个单词依次比较，更新</span><br><span class="line">        return prefix</span><br><span class="line"></span><br><span class="line">        </span><br><span class="line">    def lcp(self, str1, str2):</span><br><span class="line">        length, index = min(len(str1), len(str2)) , 0 # 长度取二者最短，下标从0开始比较</span><br><span class="line">        while index &lt; length and str1[index] == str2[index]:</span><br><span class="line">            index += 1</span><br><span class="line">        return str1[:index] # 返回二者最长公共前缀</span><br></pre></td></tr></table></figure>
+
+<h2 id="20-有效的括号"><a href="#20-有效的括号" class="headerlink" title="20. 有效的括号"></a>20. 有效的括号</h2><p>题目：</p>
+<blockquote>
+<p>给定一个只包括 ‘(‘，’)’，’{‘，’}’，’[‘，’]’ 的字符串 s ，判断字符串是否有效。空字符串被判定为有效。</p>
+<p>有效字符串需满足：</p>
+<p>左括号必须用相同类型的右括号闭合。<br>左括号必须以正确的顺序闭合。</p>
+</blockquote>
+<p>思路：</p>
+<blockquote>
+<p>如果是左括号那就先加入result，如果是右括号就和result最后一个字符做匹配。【偷懒没写成栈操作，但原理一样】</p>
+</blockquote>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br></pre></td><td class="code"><pre><span class="line">class Solution:</span><br><span class="line">    def isValid(self, s: str) -&gt; bool:</span><br><span class="line">        result = &quot;&quot;</span><br><span class="line">        flag = 1</span><br><span class="line">        if s[0] in (&quot;)&quot;,&quot;&#125;&quot;,&quot;]&quot;):</span><br><span class="line">            return False</span><br><span class="line">        for i in s:</span><br><span class="line">            if i == &quot;(&quot;:</span><br><span class="line">                result += i</span><br><span class="line">            elif i == &quot;[&quot;:</span><br><span class="line">                result += i</span><br><span class="line">            elif i == &quot;&#123;&quot;:</span><br><span class="line">                result += i</span><br><span class="line">            elif i == &quot;)&quot;:</span><br><span class="line">                if result == &quot;&quot;:</span><br><span class="line">                    return False</span><br><span class="line">                if result[-1] != &quot;(&quot;:</span><br><span class="line">                    flag = 0</span><br><span class="line">                else:</span><br><span class="line">                    result = result[:-1]</span><br><span class="line">            elif i == &quot;]&quot;:</span><br><span class="line">                if result == &quot;&quot;:</span><br><span class="line">                    return False</span><br><span class="line">                if result[-1] != &quot;[&quot;:</span><br><span class="line">                    flag = 0</span><br><span class="line">                else:</span><br><span class="line">                    result = result[:-1]</span><br><span class="line">            elif i == &quot;&#125;&quot;:</span><br><span class="line">                if result == &quot;&quot;:</span><br><span class="line">                    return False</span><br><span class="line">                if result[-1] != &quot;&#123;&quot;:</span><br><span class="line">                    flag = 0</span><br><span class="line">                else:</span><br><span class="line">                    result = result[:-1]</span><br><span class="line">        if flag == 1 and result == &quot;&quot;:</span><br><span class="line">            return True</span><br><span class="line">        return False</span><br></pre></td></tr></table></figure>
+
+<h2 id="合并两个有序链表"><a href="#合并两个有序链表" class="headerlink" title="合并两个有序链表"></a>合并两个有序链表</h2><p>题目：</p>
+<blockquote>
+<p>将两个升序链表合并为一个新的升序链表并返回。新链表是通过拼接给定的两个链表的所有节点组成的。</p>
+</blockquote>
+<p>思路：</p>
+<blockquote>
+<p>先比较两个链表的第一个结点，小的节点的next更新为递归比较的结果，并且返回该节点。</p>
+</blockquote>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"># Definition for singly-linked list.</span><br><span class="line"># class ListNode:</span><br><span class="line">#     def __init__(self, val=0, next=None):</span><br><span class="line">#         self.val = val</span><br><span class="line">#         self.next = next</span><br><span class="line">class Solution:</span><br><span class="line">    def mergeTwoLists(self, list1: Optional[ListNode], list2: Optional[ListNode]) -&gt; Optional[ListNode]:</span><br><span class="line">        if list1 is None:  # 如果list1为空，不需要比较排序，直接返回list2</span><br><span class="line">            return list2</span><br><span class="line">        elif list2 is None:  # 如果list2为空，不需要比较排序，直接返回list1</span><br><span class="line">            return list1</span><br><span class="line">        elif list1.val &lt; list2.val:  # 比较当前两个头节点谁更小取谁 </span><br><span class="line">            list1.next = self.mergeTwoLists(list1.next, list2)  # 递归比较下一个节点和另一个序列头节点</span><br><span class="line">            return list1  # 返回小的头节点</span><br><span class="line">        else:</span><br><span class="line">            list2.next = self.mergeTwoLists(list1, list2.next)</span><br><span class="line">            return list2</span><br></pre></td></tr></table></figure>
+
+<h2 id="26-删除排序数组中的重复项"><a href="#26-删除排序数组中的重复项" class="headerlink" title="26. 删除排序数组中的重复项"></a>26. 删除排序数组中的重复项</h2><p>题目：</p>
+<blockquote>
+<p>给你一个 升序排列 的数组 nums ，请你 原地 删除重复出现的元素，使每个元素 只出现一次 ，返回删除后数组的新长度。元素的 相对顺序 应该保持 一致 。</p>
+</blockquote>
+<p>思路：</p>
+<blockquote>
+<p>双指针，慢指针指向从1开始当前待修改位置，快指针从1开始查找，如果与i-1位置元素不相等，即更改到其后。</p>
+</blockquote>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">class Solution:</span><br><span class="line">    def removeDuplicates(self, nums: List[int]) -&gt; int:</span><br><span class="line">        if len(nums)==0:</span><br><span class="line">            return 0</span><br><span class="line">        i = 1</span><br><span class="line">        for j in range(1,len(nums)): # 快指针查找不相等的元素</span><br><span class="line">            if nums[j]!=nums[i-1]: # 不相等即更改到其后</span><br><span class="line">                nums[i] = nums[j]</span><br><span class="line">                i += 1 # 慢指针往后移</span><br><span class="line">        return i # 扫描结束，i的位置即删除重复后长度</span><br></pre></td></tr></table></figure>
+
+<h2 id="27-移除元素"><a href="#27-移除元素" class="headerlink" title="27. 移除元素"></a>27. 移除元素</h2><p>题目：</p>
+<blockquote>
+<p>给你一个数组 nums 和一个值 val，你需要 原地 移除所有数值等于 val 的元素，并返回移除后数组的新长度。</p>
+</blockquote>
+<p>思路：</p>
+<blockquote>
+<p>双指针，慢指针指向待写位置从0开始，快指针从0开始扫描不等于待删数的写入。</p>
+</blockquote>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">class Solution:</span><br><span class="line">    def removeElement(self, nums: List[int], val: int) -&gt; int:</span><br><span class="line">        if not nums:  # 如果列表为空则返回0</span><br><span class="line">            return 0</span><br><span class="line">        left = 0  # 初始指向第一个位置</span><br><span class="line">        for right in range(len(nums)):  # 遍历列表</span><br><span class="line">            if nums[right] != val:  # 如果不等于val说明可加入列表</span><br><span class="line">                nums[left] = nums[right]</span><br><span class="line">                left += 1  # 指向下一个位置</span><br><span class="line">        return left  # 最后left的位置就是nums的有效长度</span><br></pre></td></tr></table></figure>
+
+<h2 id="28-实现strStr"><a href="#28-实现strStr" class="headerlink" title="28. 实现strStr()"></a>28. 实现strStr()</h2><p>题目：</p>
+<blockquote>
+<p>给你两个字符串 haystack 和 needle ，请你在 haystack 字符串中找出 needle 字符串出现的第一个位置（下标从 0 开始）。如果不存在，则返回-1</p>
+</blockquote>
+<p>思路：</p>
+<blockquote>
+<p>笑死，Python的find函数完美实现了，算了，这KMP我是一行也看不下去的，偷个懒。注意不能用index，因为index找不到会抛出异常，而find找不到是返回-1</p>
+</blockquote>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">class Solution:</span><br><span class="line">    def strStr(self, haystack: str, needle: str) -&gt; int:</span><br><span class="line">        return haystack.find(needle)</span><br></pre></td></tr></table></figure>
+    </div>
+
+    
+    
+    
+
+      <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/%E5%8A%9B%E6%89%A3%E9%A2%98%E8%A7%A3/" rel="tag"># 力扣题解</a>
+          </div>
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/%E5%86%99%E7%BB%99%E7%94%B7%E6%9C%8B%E5%8F%8B%E7%9A%84%E6%83%85%E4%B9%A64/" rel="prev" title="写给男朋友的情书4">
+      <i class="fa fa-chevron-left"></i> 写给男朋友的情书4
+    </a></div>
+      <div class="post-nav-item">
+    <a href="/%E5%86%99%E7%BB%99%E7%94%B7%E6%9C%8B%E5%8F%8B%E7%9A%84%E6%83%85%E4%B9%A65/" rel="next" title="写给男朋友的情书5">
+      写给男朋友的情书5 <i class="fa fa-chevron-right"></i>
+    </a></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+
+
+          </div>
+          
+
+<script>
+  window.addEventListener('tabs:register', () => {
+    let { activeClass } = CONFIG.comments;
+    if (CONFIG.comments.storage) {
+      activeClass = localStorage.getItem('comments_active') || activeClass;
+    }
+    if (activeClass) {
+      let activeTab = document.querySelector(`a[href="#comment-${activeClass}"]`);
+      if (activeTab) {
+        activeTab.click();
+      }
+    }
+  });
+  if (CONFIG.comments.storage) {
+    window.addEventListener('tabs:click', event => {
+      if (!event.target.matches('.tabs-comment .tab-content .tab-pane')) return;
+      let commentClass = event.target.classList[1];
+      localStorage.setItem('comments_active', commentClass);
+    });
+  }
+</script>
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          Table of Contents
+        </li>
+        <li class="sidebar-nav-overview">
+          Overview
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#leetcode-simple-1-9"><span class="nav-number">1.</span> <span class="nav-text">leetcode simple 1-9</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#1-%E4%B8%A4%E6%95%B0%E4%B9%8B%E5%92%8C"><span class="nav-number">1.1.</span> <span class="nav-text">1. 两数之和</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#9-%E5%9B%9E%E6%96%87%E6%95%B0"><span class="nav-number">1.2.</span> <span class="nav-text">9. 回文数</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#13-%E7%BD%97%E9%A9%AC%E6%95%B0%E5%AD%97%E8%BD%AC%E6%95%B4%E6%95%B0"><span class="nav-number">1.3.</span> <span class="nav-text">13. 罗马数字转整数</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#14-%E6%9C%80%E9%95%BF%E5%85%AC%E5%85%B1%E5%89%8D%E7%BC%80"><span class="nav-number">1.4.</span> <span class="nav-text">14. 最长公共前缀</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#20-%E6%9C%89%E6%95%88%E7%9A%84%E6%8B%AC%E5%8F%B7"><span class="nav-number">1.5.</span> <span class="nav-text">20. 有效的括号</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%90%88%E5%B9%B6%E4%B8%A4%E4%B8%AA%E6%9C%89%E5%BA%8F%E9%93%BE%E8%A1%A8"><span class="nav-number">1.6.</span> <span class="nav-text">合并两个有序链表</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#26-%E5%88%A0%E9%99%A4%E6%8E%92%E5%BA%8F%E6%95%B0%E7%BB%84%E4%B8%AD%E7%9A%84%E9%87%8D%E5%A4%8D%E9%A1%B9"><span class="nav-number">1.7.</span> <span class="nav-text">26. 删除排序数组中的重复项</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#27-%E7%A7%BB%E9%99%A4%E5%85%83%E7%B4%A0"><span class="nav-number">1.8.</span> <span class="nav-text">27. 移除元素</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#28-%E5%AE%9E%E7%8E%B0strStr"><span class="nav-number">1.9.</span> <span class="nav-text">28. 实现strStr()</span></a></li></ol></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">小粥同学</p>
+  <div class="site-description" itemprop="description">勇敢自信乐观努力的宇宙无敌大可爱</div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">8</span>
+          <span class="site-state-item-name">posts</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+        <span class="site-state-item-count">1</span>
+        <span class="site-state-item-name">categories</span>
+      </div>
+      <div class="site-state-item site-state-tags">
+        <span class="site-state-item-count">5</span>
+        <span class="site-state-item-name">tags</span>
+      </div>
+  </nav>
+</div>
+  <div class="sidebar-button motion-element"><i class="fa fa-comment"></i>
+    Chat
+  </a>
+  </div>
+  <div class="cc-license motion-element" itemprop="license">
+    <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" class="cc-opacity" rel="noopener" target="_blank"><img src="/images/cc-by-nc-sa.svg" alt="Creative Commons"></a>
+  </div>
+
+
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+        
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2022</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">小粥同学</span>
+</div>
+  <div class="powered-by">Powered by <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> & <a href="https://muse.theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Muse</a>
+  </div>
+
+        
+
+
+
+
+
+
+
+
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+
+<script src="/js/utils.js"></script>
+
+<script src="/js/motion.js"></script>
+
+
+<script src="/js/schemes/muse.js"></script>
+
+
+<script src="/js/next-boot.js"></script>
+
+<script src="/js/bookmark.js"></script>
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+</body>
+</html>
