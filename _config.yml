@@ -10,6 +10,10 @@ keywords:
 author: 小粥同学
 language: en
 timezone: ''
+deploy:
+  type: git
+  repo: https://github.com/zxy630/zxy630.github.io.git
+  branch: master
 
 # URL
 ## Set your site url here. For example, if you use GitHub Page, set url as 'https://username.github.io/project'
