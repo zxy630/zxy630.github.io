@@ -156,80 +156,6 @@
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
-    <link itemprop="mainEntityOfPage" href="https://zxy630.github.io/240320%E4%BF%A1%E6%81%AF%E8%AE%BA%E5%92%8C%E5%8D%B7%E7%A7%AF/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/avatar.gif">
-      <meta itemprop="name" content="小粥同学">
-      <meta itemprop="description" content="勇敢自信乐观努力的宇宙无敌大可爱">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="小粥同学的博客">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/240320%E4%BF%A1%E6%81%AF%E8%AE%BA%E5%92%8C%E5%8D%B7%E7%A7%AF/" class="post-title-link" itemprop="url">信息论和卷积</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="far fa-calendar"></i>
-              </span>
-              <span class="post-meta-item-text">Posted on</span>
-              
-
-              <time title="Created: 2024-03-20 08:59:00 / Modified: 01:19:04" itemprop="dateCreated datePublished" datetime="2024-03-20T08:59:00+00:00">2024-03-20</time>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h2 id="信息论基础概念"><a href="#信息论基础概念" class="headerlink" title="信息论基础概念"></a>信息论基础概念</h2><ol>
-<li>信息量：$-log(px(x))$，即一件事情发生的概率越小，其所包含的信息量越大</li>
-<li>熵：事件所包含信息量的期望，熵越大越混乱</li>
-<li>交叉熵：Entropy Loss，$H(p,q)&#x3D;-\sum_{i&#x3D;1}^np(x_i)log(q(x_i))$</li>
-<li>KL散度：测量近似分布时损失的信息，可以用来找最优分布，但不是对称的，不是距离</li>
-<li>JS散度：对称，梯度为0，两个分布完全不重叠时JS为常数2</li>
-<li>HD95：衡量2个集合间距离，越小模型性能越好，计算时滤去5%的离群点，保留点集距离的最大值，故算是衡量边界点</li>
-</ol>
-<h2 id="各种卷积"><a href="#各种卷积" class="headerlink" title="各种卷积"></a>各种卷积</h2><ol>
-<li>卷积（下采样）：降维，将卷积块与目标一一乘积求和</li>
-<li>反卷积（上采样）：保留映射中相对位置关系信息，但不是复原，filter大小不能被stride整除的话就会有不均匀重叠，也就是棋盘格伪影</li>
-<li>扩张卷积（膨胀、空洞卷积、dilate）：扩大感受野，可以在多尺度中使用，膨胀系数为1时就是普通卷积</li>
-<li>可分离卷积（separate）：空间或深度，可以大幅减少卷积参数，但并不是所有卷积核都可分，使用时要限制类型，故可能会影响训练效果</li>
-<li>扁平卷积：</li>
-<li>分组卷积：拆分以达到多GPU训练</li>
-</ol>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="en">
     <link itemprop="mainEntityOfPage" href="https://zxy630.github.io/welcome/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -255,7 +181,7 @@
               <span class="post-meta-item-text">Posted on</span>
               
 
-              <time title="Created: 2024-03-20 01:18:52 / Modified: 01:19:04" itemprop="dateCreated datePublished" datetime="2024-03-20T01:18:52+00:00">2024-03-20</time>
+              <time title="Created: 2024-03-20 01:46:30 / Modified: 01:46:42" itemprop="dateCreated datePublished" datetime="2024-03-20T01:46:30+00:00">2024-03-20</time>
             </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -329,7 +255,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2024-03-20 01:19:04" itemprop="dateModified" datetime="2024-03-20T01:19:04+00:00">2024-03-20</time>
+                <time title="Modified: 2024-03-20 01:46:42" itemprop="dateModified" datetime="2024-03-20T01:46:42+00:00">2024-03-20</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -415,7 +341,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2024-03-20 01:19:04" itemprop="dateModified" datetime="2024-03-20T01:19:04+00:00">2024-03-20</time>
+                <time title="Modified: 2024-03-20 01:46:42" itemprop="dateModified" datetime="2024-03-20T01:46:42+00:00">2024-03-20</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -496,7 +422,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2024-03-20 01:19:04" itemprop="dateModified" datetime="2024-03-20T01:19:04+00:00">2024-03-20</time>
+                <time title="Modified: 2024-03-20 01:46:42" itemprop="dateModified" datetime="2024-03-20T01:46:42+00:00">2024-03-20</time>
               </span>
 
           
@@ -569,7 +495,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2024-03-20 01:19:04" itemprop="dateModified" datetime="2024-03-20T01:19:04+00:00">2024-03-20</time>
+                <time title="Modified: 2024-03-20 01:46:42" itemprop="dateModified" datetime="2024-03-20T01:46:42+00:00">2024-03-20</time>
               </span>
 
           
@@ -642,7 +568,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2024-03-20 01:19:04" itemprop="dateModified" datetime="2024-03-20T01:19:04+00:00">2024-03-20</time>
+                <time title="Modified: 2024-03-20 01:46:42" itemprop="dateModified" datetime="2024-03-20T01:46:42+00:00">2024-03-20</time>
               </span>
 
           
@@ -721,7 +647,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2024-03-20 01:19:04" itemprop="dateModified" datetime="2024-03-20T01:19:04+00:00">2024-03-20</time>
+                <time title="Modified: 2024-03-20 01:46:42" itemprop="dateModified" datetime="2024-03-20T01:46:42+00:00">2024-03-20</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -802,7 +728,7 @@
                   <i class="far fa-calendar-check"></i>
                 </span>
                 <span class="post-meta-item-text">Edited on</span>
-                <time title="Modified: 2024-03-20 01:19:04" itemprop="dateModified" datetime="2024-03-20T01:19:04+00:00">2024-03-20</time>
+                <time title="Modified: 2024-03-20 01:46:42" itemprop="dateModified" datetime="2024-03-20T01:46:42+00:00">2024-03-20</time>
               </span>
             <span class="post-meta-item">
               <span class="post-meta-item-icon">
@@ -916,7 +842,7 @@
       <div class="site-state-item site-state-posts">
           <a href="/archives/">
         
-          <span class="site-state-item-count">9</span>
+          <span class="site-state-item-count">8</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
@@ -925,7 +851,7 @@
         <span class="site-state-item-name">categories</span>
       </div>
       <div class="site-state-item site-state-tags">
-        <span class="site-state-item-count">8</span>
+        <span class="site-state-item-count">7</span>
         <span class="site-state-item-name">tags</span>
       </div>
   </nav>
