@@ -10,10 +10,7 @@ keywords:
 author: 小粥同学
 language: en
 timezone: ''
-deploy:
-  type: git
-  repo: https://github.com/zxy630/zxy630.github.io.git
-  branch: master
+
 
 # URL
 ## Set your site url here. For example, if you use GitHub Page, set url as 'https://username.github.io/project'
@@ -107,7 +104,9 @@ theme: next
 # Deployment
 ## Docs: https://hexo.io/docs/one-command-deployment
 deploy:
-  type: ''
+  type: git
+  repo: https://github.com/zxy630/zxy630.github.io.git
+  branch: master
 
 #RSS订阅是设置
 plugin: hexo-generator-feed
